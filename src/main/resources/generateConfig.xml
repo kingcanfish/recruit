@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry
+            location="E:\code\java\recruit\src\main\resources\mysql-connector-java-5.1.39-bin.jar" />
+    <context id="mysql" targetRuntime="MyBatis3">
+        <!--  将实体类序列化-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="false" />
+            <property name="suppressDate" value="false"/>
+        </commentGenerator>
+
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <!-- 注意,这里使用的是mariadb -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://guoxy.top:3306/ncuhome" userId="root"
+                        password="keyu0102" />
+
+        <!-- 通过javaTypeResolver元素控制类型转化，也能继承JavaTypeResolver接口实现自己的类型转换器。 -->
+        <javaTypeResolver>
+            <!--将 JDBC DECIMAL和NUMERIC解析为Integer，而不是BigDecimal -->
+            <property name="forceBigDecimals" value="false" />
+
+        </javaTypeResolver>
+
+        <!-- 生成模型的包名和位置 -->
+        <javaModelGenerator targetPackage="top.guoxy.recruit.model"
+                            targetProject="E:\code\java\recruit\src\main\java" />
+        <sqlMapGenerator targetPackage="test.xml"
+                         targetProject="E:\code\java\recruit\src\main\java" />
+        <javaClientGenerator targetPackage="top.guoxy.recruit.dao"
+                             targetProject="E:\code\java\recruit\src\main\java"
+                             type="XMLMAPPER" />
+        <!-- shema 数据库 tableName表明 -->
+        <table schema="ncuhome" tableName="comment"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+        <table schema="ncuhome" tableName="freshman" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" />
+        <table schema="ncuhome" tableName="star" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false" />
+        <table schema="ncuhome" tableName="user"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false" />
+
+
+
+        <!-- table其他属性： enableCountByExample="false" enableUpdateByExample="false"
+            enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" -->
+        <!-- schema即为数据库名, tableName为对应的数据库表, domainObjectName是要生成的实体类, 如果想要mapper配置文件加入sql的where条件查询,
+            可以将enableCountByExample等设为true, 这样就会生成一个对应domainObjectName的Example类, enableCountByExample等设为false时,
+            就不会生成对应的Example类 -->
+        <!-- Example类实现了查询条件的对象化。 "_"分隔的字段名会自动转化为驼峰形式。 oracle nvarchar/nvarchar2类型会转化成Object类型。
+            oracle指定精度的数值型字段默认转为BigDecimal，不指定精度的数值型默认转为Long。 targetProject属性可以设置为MAVEN，代码将生成在target/generatored-source目录下。
+            generatorConfiguration节点下添加 <properties resource="jdbc.properties" />，可以在配置中的${...}表示的占位符。获取文件的方式为：Thread.currentThread().getContextClassLoader().getResource(resource)
+            context节点下添加<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+            生成的pojo类implements Serializable。 通过enableCountByExample, enableUpdateByExample,
+            enableDeleteByExample, enableSelectByExample, selectByExampleQueryId等属性可以控制是否生成和使用xxxExample类在查询中替代模型类。 -->
+
+    </context>
+</generatorConfiguration>

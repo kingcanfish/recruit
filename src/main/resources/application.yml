@@ -5,10 +5,8 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/recruit
-    username: root
-    password: 123456
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: create-drop
+    url: jdbc:mysql://guoxy.top:3306/ncuhome?serverTimezone=GMT%2B8
+    username: *
+    password: *
+
+
