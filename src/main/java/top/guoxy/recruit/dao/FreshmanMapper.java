@@ -2,11 +2,13 @@ package top.guoxy.recruit.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 import top.guoxy.recruit.model.Freshman;
 
-import java.util.Optional;
+import java.util.List;
+
+@Component
 @Mapper
 public interface FreshmanMapper {
     /**
@@ -24,7 +26,7 @@ public interface FreshmanMapper {
      * @mbg.generated Mon Feb 10 13:27:08 CST 2020
      */
     @Insert("insert into freshman (name, sex, department, introduction, phone, email, clazz, time)  " +
-                         "values(#{name}, #{sex}, #{department}, #{introduction}, #{phone}, #{email}, #{clazz}, #{time})")
+            "values(#{name}, #{sex}, #{department}, #{introduction}, #{phone}, #{email}, #{clazz}, #{time})")
     int insert(Freshman record);
 
     /**
@@ -60,4 +62,6 @@ public interface FreshmanMapper {
      * @mbg.generated Mon Feb 10 13:27:08 CST 2020
      */
     int updateByPrimaryKey(Freshman record);
+
+    List<Freshman> getFreshmanListByGroup(String group);
 }
