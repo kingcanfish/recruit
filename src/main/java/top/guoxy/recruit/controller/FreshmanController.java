@@ -3,18 +3,17 @@ package top.guoxy.recruit.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import top.guoxy.recruit.dto.FreshmanBasicDto;
 import top.guoxy.recruit.model.Freshman;
-import top.guoxy.recruit.service.FreshmanService;
+import top.guoxy.recruit.service.impl.FreshmanServiceImpl;
 import top.guoxy.recruit.utils.Exception;
 import top.guoxy.recruit.utils.Result;
 import top.guoxy.recruit.utils.ResultUtil;
 
-import java.util.List;
-
 @RestController
 public class FreshmanController {
     @Autowired
-    private FreshmanService service;
+    private FreshmanServiceImpl service;
 
 
     @GetMapping("/freshman/{id}")

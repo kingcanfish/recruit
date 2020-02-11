@@ -1,35 +1,22 @@
 package top.guoxy.recruit.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import top.guoxy.recruit.dao.FreshmanMapper;
+import top.guoxy.recruit.dto.FreshmanBasicDto;
 import top.guoxy.recruit.model.Freshman;
-import top.guoxy.recruit.utils.Exception;
 
+import java.util.List;
 
-import java.sql.Timestamp;
-import java.util.Date;
+/**
+ * @author: GuoXinYu <gxylong@126.com>
+ * @datetime: 2020/2/11 19:04
+ **/
+public interface FreshmanService {
+    //通过id获取新生基本信息
+    Freshman getFreshmanByID(int id);
 
+    //插入一条数据
 
+    int insert(Freshman freshman);
 
-@Service
-public class FreshmanService {
-    final FreshmanMapper freshmanMapper;
-    @Autowired
-    public FreshmanService( FreshmanMapper freshmanMapper) {
-        this.freshmanMapper = freshmanMapper;
-    }
-
-    public Freshman getFreshmanByID(int ID) {
-
-            return freshmanMapper.selectByPrimaryKey(ID);
-    }
-
-    public int insert(Freshman freshman) {
-        freshman.setTime(new Timestamp(new Date().getTime()));
-//        System.out.println(new Timestamp(new Date().getTime()));
-        return freshmanMapper.insert(freshman);
-
-    }
+    List<Freshman> getFreshmanList(String group);
 
 }

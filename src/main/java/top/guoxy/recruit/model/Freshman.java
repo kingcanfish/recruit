@@ -137,8 +137,7 @@ public class Freshman implements Serializable {
      *
      * @mbg.generated Mon Feb 10 13:27:08 CST 2020
      */
-    //新生获取到的评论列表
-    private List<Comment> comments;
+
 
 
     private static final long serialVersionUID = 1L;
@@ -445,14 +444,6 @@ public class Freshman implements Serializable {
 
     public void setCommentCount(int commentCount) {
         this.commentCount = commentCount;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
 
     /**
