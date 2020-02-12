@@ -62,6 +62,6 @@ public interface FreshmanMapper {
      * @mbg.generated Mon Feb 10 13:27:08 CST 2020
      */
     int updateByPrimaryKey(Freshman record);
-
-    List<Freshman> getFreshmanListByGroup(String group);
+    @Select("select * from freshman where department = #{group}")
+    List<FreshmanBasicDto> getFreshmanListByGroup(String group);
 }

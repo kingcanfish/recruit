@@ -10,6 +10,8 @@ import top.guoxy.recruit.utils.Exception;
 import top.guoxy.recruit.utils.Result;
 import top.guoxy.recruit.utils.ResultUtil;
 
+import java.util.List;
+
 @RestController
 public class FreshmanController {
     @Autowired
@@ -24,6 +26,11 @@ public class FreshmanController {
         }
         return ResultUtil.success(freshman);
     }
+    @GetMapping("/freshman")
+    public Result freshmanlist(@RequestParam("group") String group) {
+        List<FreshmanBasicDto> freshmanBasicDtoList = service.getFreshmanList(group);
+        return ResultUtil.success(freshmanBasicDtoList);
+    }
 
     @PostMapping("/freshman")
     public Result save(@RequestBody Freshman freshman) {
@@ -35,4 +42,5 @@ public class FreshmanController {
             return ResultUtil.fail(-1,"请求失败，稍后再试");
         }
     }
+
 }

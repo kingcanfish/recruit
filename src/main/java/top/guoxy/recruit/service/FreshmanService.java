@@ -17,6 +17,9 @@ public interface FreshmanService {
 
     int insert(Freshman freshman);
 
-    List<Freshman> getFreshmanList(String group);
+    List<FreshmanBasicDto> getFreshmanList(String group);
+
+
+    List<FreshmanBasicDto> getFreshmanBasicListDto(String group);
 
 }
