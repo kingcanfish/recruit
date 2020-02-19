@@ -5,11 +5,13 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 import top.guoxy.recruit.dto.CommentCountDto;
 import top.guoxy.recruit.model.Comment;
 
 import java.util.List;
 
+@Repository
 @Mapper
 public interface CommentMapper {
     /**
@@ -68,13 +70,8 @@ public interface CommentMapper {
      */
     int updateByPrimaryKey(Comment record);
 
-    @Select("select freshman_id, count(1) as count from comment where freshman_id = #{freshmanId}")
-    @Results({
-            @Result(property = "FreshmanId", column = "freshman_id"),
-            @Result(property = "commentCount", column = "count")
-    })
+
     CommentCountDto getCommentCount(Integer freshmanId);
 
-    @Select("select * from comment where freshman_id = #{freshmanId}")
     List<Comment> getCommentsByFreshmanId (Integer freshmanId);
 }

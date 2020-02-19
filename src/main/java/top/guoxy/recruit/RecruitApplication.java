@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("top.guoxy.recruit.dao.mapper")
+@MapperScan("top.guoxy.recruit.dao")
 public class RecruitApplication {
 
     public static void main(String[] args) {

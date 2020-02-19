@@ -11,7 +11,7 @@ import java.util.List;
  **/
 public interface FreshmanService {
     //通过id获取新生基本信息
-    Freshman getFreshmanByID(int id);
+    Freshman getFreshmanById(int id);
 
     //插入一条数据
 

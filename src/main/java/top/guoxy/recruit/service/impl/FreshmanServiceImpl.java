@@ -27,11 +27,14 @@ public class FreshmanServiceImpl implements FreshmanService {
         this.freshmanMapper = freshmanMapper;
         this.commentMapper =commentMapper;
     }
-    @Override
-    public Freshman getFreshmanByID(int ID) {
 
-            return freshmanMapper.selectByPrimaryKey(ID);
+
+
+    @Override
+    public Freshman getFreshmanById(int id) {
+         return freshmanMapper.selectByPrimaryKey(id);
     }
+
     @Override
     public int insert(Freshman freshman) {
         freshman.setTime(new Timestamp(new Date().getTime()));

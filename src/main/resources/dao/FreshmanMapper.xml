@@ -225,4 +225,7 @@
       code = #{code,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="getFreshmanList" resultType="Freshman">
+    select * from freshman
+  </select>
 </mapper>
